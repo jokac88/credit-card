@@ -2,9 +2,9 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import CardForm from "./CardForm";
 
-function EditCard() {
+const EditCard = () => {
   const params = useParams();
-  return <CardForm />;
-}
+  return <CardForm id={params.id} />;
+};
 
 export default EditCard;

@@ -1,8 +1,8 @@
 import React from "react";
 import CardForm from "./CardForm";
 
-function AddCard() {
+const AddCard = () => {
   return <CardForm />;
-}
+};
 
 export default AddCard;

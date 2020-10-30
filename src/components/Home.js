@@ -1,18 +1,19 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import Card from "./cards/Card";
 
 const Home = () => {
+  const card = {
+    name: "Username",
+    cardNumber: ["1456", "1298", "6574", "1287"],
+    expiresDate: "02/22",
+  };
+
   return (
     <div className="home">
-      <h1 className="heading">My Cards</h1>
-      <div className="cards">
-        <Link to="/cards">
-          <Card heading="Edit Card" />
-        </Link>
-        <Link to="/cards/add">
-          <Card heading="Add Card" />
-        </Link>
+      <h1 className="heading">Welcome</h1>
+      <div className="flex flex-space">
+        <Card className="flex flex-column" card={card} url="" />
+        <Card url="add" />
       </div>
     </div>
   );
