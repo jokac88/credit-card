@@ -36,10 +36,10 @@ img {
 }
 
 :focus {
-  -webkit-box-shadow: none !important;
-  -moz-box-shadow: none !important;
-  box-shadow: none !important;
-  outline: none !important;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  outline: none;
 }
 
 .container {
@@ -149,7 +149,8 @@ img {
       margin: 0 auto;
 
       &-field {
-        margin-bottom: 20px;
+        position: relative;
+        margin-bottom: 45px;
       }
 
       label {
@@ -164,24 +165,23 @@ img {
         height: 38px;
         border-radius: 4px;
 
-        &::placeholder {
-          font-style: italic;
+        &:focus {
+          box-shadow: 0 0 0 0.2rem rgba(0, 89, 255, 0.25) !important;
         }
 
-        &::-webkit-outer-spin-button,
-        &::-webkit-inner-spin-button {
-          -webkit-appearance: none;
-          margin: 0;
-        }
-        /* Firefox */
-        &[type="number"] {
-          -moz-appearance: textfield;
+        &::placeholder {
+          font-style: italic;
         }
       }
 
       .error {
-        &-message {
-          color: red;
+        &-cardNumber,
+        &-message,
+        &-digit {
+          position: absolute;
+          left: 0;
+          bottom: -25px;
+          color: #ff0000;
           opacity: 0;
           visibility: hidden;
           transition: all 0.3s ease;
@@ -192,11 +192,15 @@ img {
           }
         }
 
+        &-digit {
+          bottom: -45px;
+        }
+
         &-input {
           transition: all 0.3s ease;
 
           &.active {
-            border-color: red;
+            border-color: #ff0000;
             box-shadow: 0 0 0 0.2rem rgba(255, 0, 0, 0.25);
             opacity: 1;
             visibility: visible;

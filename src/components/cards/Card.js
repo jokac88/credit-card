@@ -6,7 +6,7 @@ import Discover from "../../img/discover.png";
 import Chip from "../../img/chip.png";
 import Plus from "../../img/plus.svg";
 
-const Card = ({ card, url }) => {
+const Card = ({ card, url, disable }) => {
   const cardLogo = () => {
     if (card.cardNumber[0][0] !== "5" && card.cardNumber[0][0] !== "6") {
       return Visa;
@@ -22,7 +22,11 @@ const Card = ({ card, url }) => {
   return (
     <>
       {card ? (
-        <Link className="card flex flex-column" to={`/cards/${url}`}>
+        <Link
+          className="card flex flex-column"
+          to={`/cards/${url}`}
+          onClick={disable}
+        >
           <img src={cardLogo()} className="card-logo" alt={cardLogo()} />
           <img src={Chip} className="chip" alt={Chip} />
           <div className="card-numbers">
